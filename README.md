@@ -7,7 +7,7 @@ Prueba técnica desarrollador back-end para Masivian
 * a continuacion desde el navegador acceda a: http://localhost:3000
     
 # Funcionamiento
-* En la ruta "http://localhost:3000" podra visualizar en formato json el ArbolBinario que ya existe por defecto en el proyecto
+* En la ruta "http://localhost:3000" podra ejecutar y visualizar en formato json el ArbolBinario que ya existe por defecto en el proyecto
   * NOTA: dentro del proyecto, el ArbolBinario por defecto, se encuenta almacenado en el archivo "arbol.json", el cual puede modificar libremente
 * Tambien puede generar ArbolesBinarios Aleatorios desde la ruta: http://localhost:3000/randomTree
 * para obtener "El Ancestro Comun Mas Cercano" debe seleccionar dos nodos existentes del ArbolBinario en cuestion; por medio de la ruta, asi: 
