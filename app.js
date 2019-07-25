@@ -70,14 +70,15 @@ app.get('/ancestro/:nodo1/:nodo2', (req, res) => {
     }
 
     
-    res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + ancestro(n1, n2, NodoRaiz))
+    let resultado =  ancestro(n1, n2, NodoRaiz);
+    res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + resultado)
+    console.log('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + resultado);
     //res.json({ "randomNumber": rta })
 })
 
 
 function ancestro(num1, num2, nodo) {
-
-    while (nodo != undefined) {
+    let numero = 862;
         if (num1 < nodo.valor && num2 < nodo.valor)
             ancestro(num1, num2, nodo.izquierdo);
         if (num1 > nodo.valor && num2 > nodo.valor)
@@ -85,9 +86,7 @@ function ancestro(num1, num2, nodo) {
         else {
             console.log('function ancestro() => ancestro de ' + num1 + ' y ' + num2 + ' es: ' + nodo.valor);
             return nodo.valor;
-            break;
         }
-    }
 }
 
 app.listen(3000, () => {
