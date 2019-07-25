@@ -13,3 +13,6 @@ Prueba técnica desarrollador back-end para Masivian
 * para obtener "El Ancestro Comun Mas Cercano" debe seleccionar dos nodos existentes del ArbolBinario en cuestion; por medio de la ruta, asi: 
 http://localhost:3000/ancestro/5/10
    * NOTA: en la ruta anterior, los nodos "5 y 10" son datos de ejemplo. Debe escribir los nodos que usted considere pertinentes.
+
+# Developer
+Jessica Guarin Alarcon
