@@ -68,26 +68,26 @@ app.get('/ancestro/:nodo1/:nodo2', (req, res) => {
         res.json({"error":'Bad request'})
         return;
     }
-
-    
-    let resultado =  ancestro(n1, n2, NodoRaiz);
-    res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + resultado)
-    console.log('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + resultado);
-    //res.json({ "randomNumber": rta })
-})
-
-
-function ancestro(num1, num2, nodo) {
-    let numero = 862;
+    ancestro(n1, n2, NodoRaiz)
+    function ancestro(num1, num2, nodo) {
         if (num1 < nodo.valor && num2 < nodo.valor)
             ancestro(num1, num2, nodo.izquierdo);
         if (num1 > nodo.valor && num2 > nodo.valor)
             ancestro(num1, num2, nodo.derecho);
         else {
             console.log('function ancestro() => ancestro de ' + num1 + ' y ' + num2 + ' es: ' + nodo.valor);
-            return nodo.valor;
+            res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + nodo.valor)
         }
 }
+    
+    //let resultado =   ancestro(n1, n2, NodoRaiz);
+    
+    //console.log('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + resultado);
+    //res.json({ "randomNumber": rta })
+})
+
+
+
 
 app.listen(3000, () => {
     console.log('Server on port 3000')
