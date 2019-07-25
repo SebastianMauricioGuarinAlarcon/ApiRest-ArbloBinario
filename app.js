@@ -19,6 +19,19 @@ app.get('/', (req, res) => {
     buildTree()
 });
 
+app.get('/randomTree', (req, res) => {
+    //capturo los datos del arbol.json en el siguiente array----------
+    arreglo = arbol.arbolBinario;
+    //intentando agregar datos: splice(posicion, cantEliminar, itemsNuevos...)
+    let arr = [10,4,8,13,15,28,1,3,9,7,14,12];
+    for (let cont = 0; cont < arreglo.length; cont++) {
+    arbol.arbolBinario.splice(cont, 1, Math.floor(Math.random() * (50-1) + 1));
+    }
+    //muestro el resultado al cliente
+    res.json({ "arbolBinario-ALEATORO": arreglo })
+    buildTree()
+});
+
 function Nodo(valor) { this.valor = valor; let izquierdo, derecho; }
 
 function buildTree() {
@@ -62,10 +75,17 @@ app.get('/ancestro/:nodo1/:nodo2', (req, res) => {
     const n1 = parseInt(req.params.nodo1);
     const n2 = parseInt(req.params.nodo2);
 
+    //verificar si los numeros existen en el array:
+    if(!arreglo.includes(n1) || !arreglo.includes(n2)){
+        res.status(404);
+        res.json({"error":'alguno o ambos NODOS no existe en el array'})
+        return;
+    }
+
     //mostrar error si los valores ingresados no son numeros
     if(isNaN(n1) || isNaN(n2)){
         res.status(404);
-        res.json({"error":'Bad request'})
+        res.json({"error":'no se permite texto'})
         return;
     }
     ancestro(n1, n2, NodoRaiz)
@@ -76,7 +96,15 @@ app.get('/ancestro/:nodo1/:nodo2', (req, res) => {
             ancestro(num1, num2, nodo.derecho);
         else {
             console.log('function ancestro() => ancestro de ' + num1 + ' y ' + num2 + ' es: ' + nodo.valor);
-            res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + nodo.valor)
+            //res.send('ancestro de los nodos ' + n1 + ' y nodo ' + n2 + ' es: ' + nodo.valor)
+            res.json({
+                "arbolBinario": arreglo,
+                "ancestroCercano":[{
+                    "nodo1":n1,
+                    "nodo2":n2,
+                    "ancestro":nodo.valor
+                }]
+            })
         }
 }
     
