@@ -1,7 +1,7 @@
 # ApiRest-ArbolBinario
 Prueba técnica desarrollador back-end para Masivian
 # Como ejecutar la aplicacion
-<<aplicacion desarrollada en NodeJS>>
+(aplicacion desarrollada en NodeJS)
 -para ejecutar, en la ruta del proyecto desde consola ejecute el comando: node app.js
     ejemplo: C:\Users\MASIVIAN\arbolBinario>node app.js
 -a continuacion desde el navegador acceda a: http://localhost:3000
