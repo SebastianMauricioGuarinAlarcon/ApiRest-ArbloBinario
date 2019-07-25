@@ -1,4 +1,4 @@
-# ApiRest-ArbloBinario
+# ApiRest-ArbolBinario
 Prueba técnica desarrollador back-end para Masivian
 # Como ejecutar la aplicacion
 <<aplicacion desarrollada en NodeJS>>
